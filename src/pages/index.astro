@@ -1,13 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '../styles/normalize.css'
 ---
 
 <Layout title="Pirate Pigeons 🕊">
 	<main>
-		hello
+		<h1 class="main-title">Pirate Pigeons 🕊</h1>
+		<div class="video-wrapper">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/5jKZ9KGtee0?si=SxZR8A4wNq-5IQSl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		</div>
 	</main>
 </Layout>
 
 <style>
+.main-title {
+	text-align: center;
+}
 
+.video-wrapper{
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+}
+
+.video-wrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 </style>
