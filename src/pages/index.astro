@@ -6,28 +6,31 @@ import '../styles/normalize.css'
 <Layout title="Pirate Pigeons 🕊">
 	<main>
 		<h1 class="main-title">Pirate Pigeons 🕊</h1>
-		<div class="video-wrapper">
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/5jKZ9KGtee0?si=SxZR8A4wNq-5IQSl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-		</div>
+		<!--<div class="video-container">
+			<iframe src="https://www.youtube-nocookie.com/embed/5jKZ9KGtee0?vq=hd1080&rel=0" width="560" height="315" title="A YouTube video" frameborder="0" allowfullscreen></iframe>		</div>
+		</div>-->
 	</main>
 </Layout>
 
 <style>
-.main-title {
-	text-align: center;
-}
+	.main-title {
+		text-align: center;
+	}
 
-.video-wrapper{
-	position: relative;
-	padding-bottom: 56.25%;
-	height: 0;
-}
+	.video-container {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		padding-top: 56.25%;  /* 16:9 Aspect Ratio */
+	}
 
-.video-wrapper iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
+	.video-container iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+
 </style>
