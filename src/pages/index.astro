@@ -6,22 +6,25 @@ import '../styles/normalize.css'
 <Layout title="Pirate Pigeons 🕊">
 	<main>
 		<h1 class="main-title">Pirate Pigeons 🕊</h1>
-		<!--<div class="video-container">
-			<iframe src="https://www.youtube-nocookie.com/embed/5jKZ9KGtee0?vq=hd1080&rel=0" width="560" height="315" title="A YouTube video" frameborder="0" allowfullscreen></iframe>		</div>
-		</div>-->
+		<div class="video-container">
+			<iframe src="https://www.youtube-nocookie.com/embed/5jKZ9KGtee0?vq=hd1080&rel=0" title="A YouTube video" frameborder="0" allowfullscreen></iframe>
+		</div>
 	</main>
 </Layout>
 
 <style>
-	.main-title {
-		text-align: center;
+	main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.video-container {
 		position: relative;
-		overflow: hidden;
-		width: 100%;
-		padding-top: 56.25%;  /* 16:9 Aspect Ratio */
+		width: 50%;  /* Adjusted to 1/2 for larger screens */
+		padding-bottom: 28.125%;  /* Adjusted to maintain aspect ratio */
+		margin: auto;  /* Center the container */
 	}
 
 	.video-container iframe {
@@ -32,5 +35,11 @@ import '../styles/normalize.css'
 		height: 100%;
 	}
 
-
+	/* Media Query for smaller screens */
+	@media (max-width: 1280px) {
+		.video-container {
+			width: 94%;  /* Near full width with a bit of space from the border */
+			padding-bottom: 52.8125%;  /* Adjusted to maintain aspect ratio */
+		}
+	}
 </style>
