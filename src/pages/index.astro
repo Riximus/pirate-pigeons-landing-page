@@ -182,7 +182,8 @@ import background from '../assets/Background.png'
 	}
 
 	/* Media Query for smaller screens */
-	@media (max-width: 1280px) {
+	// TODO also check max-height because of video size on smaller screens, also fix whitespace right and top sides because of pulling down
+	@media (max-width: 960px) {
 		.video-container {
 			width: 94%;  /* Near full width with a bit of space from the border */
 			padding-bottom: 52.8125%;  /* Adjusted to maintain aspect ratio */
@@ -194,12 +195,6 @@ import background from '../assets/Background.png'
 
 		.cloud-container {
 			display: none;
-		}
-	}
-
-	@media (max-width: 920px) {
-		.title-container img {
-			height: 150px;
 		}
 	}
 
