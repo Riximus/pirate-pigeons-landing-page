@@ -9,27 +9,29 @@ import cloud1 from '../assets/Cloud1.png'
 import cloud2 from '../assets/Cloud2.png'
 import cloud3 from '../assets/Cloud3.png'
 import background from '../assets/Background.png'
+import crew from '../assets/Crew.jpg'
 ---
 
 <Layout title="Pirate Pigeons 🕊">
-	<main class="debug">
-		<section class="hero-section debug">
+	<main>
+		<section class="hero-section">
 			<!--<h1 class="main-title debug">Pirate Pigeons 🕊</h1>-->
 			<div class="cloud-container">
 				<Image src={cloud3} class="initialCloud" alt="Cloud 1" />
 				<Image src={cloud1} class="firstCloud" alt="Cloud 2" />
 				<Image src={cloud2} class="secondCloud" alt="Cloud 3" />
 				<Image src={cloud3} class="thirdCloud" alt="Cloud 1" />
+				<Image src={cloud2} class="secondInitialCloud" alt="Cloud 3" />
 			</div>
 			<div class="hero-section-content">
 				<div class="title-container">
-					<Image src={pirate} alt="Pirate Pigeon" class="debug" />
-					<Image src={pigeons} alt="Pirate Pigeon" class="debug" />
+					<Image src={pirate} alt="Pirate Pigeon" />
+					<Image src={pigeons} alt="Pirate Pigeon" />
 				</div>
-				<div class="video-container debug">
-					<iframe src="https://www.youtube-nocookie.com/embed/5jKZ9KGtee0?vq=hd1080&rel=0" title="A YouTube video" frameborder="0" allowfullscreen></iframe>
+				<div class="video-container">
+					<iframe src="https://www.youtube-nocookie.com/embed/5jKZ9KGtee0?vq=hd1080&rel=0" title="A YouTube video" frameborder="0" allowfullscreen style="border-radius: 0.75em"></iframe>
 				</div>
-				<div class="social-media-container debug">
+				<div class="social-media-container">
 					<!-- Twitter (or X I guess lol) -->
 					<a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
 						<button>
@@ -52,7 +54,8 @@ import background from '../assets/Background.png'
 			</div>
 		</section>
 		<section class="team-section">
-			<h1>Hello World</h1>
+			<h1>TEAM</h1>
+			<Image src={crew} class="crew-image" alt="Pirate Pigeon Crew Members as Pigeons" />
 		</section>
 	</main>
 </Layout>
@@ -70,7 +73,17 @@ import background from '../assets/Background.png'
 		position: absolute;
 		left: 100%;
 		top: 80px;
-		animation: moveFirst 27s linear .2s;
+		animation: moveFirst 65s linear .2s;
+		animation-iteration-count: 1;
+		height: 180px;
+		width: auto;
+	}
+
+	.secondInitialCloud {
+		position: absolute;
+		left: 100%;
+		top: 270px;
+		animation: moveSecond 85s linear .2s;
 		animation-iteration-count: 1;
 		height: 180px;
 		width: auto;
@@ -80,30 +93,30 @@ import background from '../assets/Background.png'
 		position: absolute;
 		left: -30%;
 		top: 320px;
-		animation: move 31s linear 5s infinite;
+		animation: move 136s linear 38s infinite;
 	}
 
 	.secondCloud {
 		position: absolute;
 		left: -30%;
 		top: 50px;
-		animation: move 35s linear 10s infinite;
+		animation: move 142s linear 70s infinite;
 		height: 150px;
 		width: auto;
 	}
 
 	.thirdCloud {
-		top: 170px;
-		left: -30%;
 		position: absolute;
-		animation: move 19s linear 1s infinite;
+		left: -30%;
+		top: 170px;
+		animation: move 130s linear 5s infinite;
 		height: 170px;
 		width: auto;
 	}
 
 	@-webkit-keyframes move {
 		from {
-			left: -30%;
+			left: -20%;
 		}
 		to {
 			left: 100%;
@@ -113,6 +126,15 @@ import background from '../assets/Background.png'
 	@-webkit-keyframes moveFirst {
 		from {
 			left: 50%;
+		}
+		to {
+			left: 100%;
+		}
+	}
+
+	@-webkit-keyframes moveSecond {
+		from {
+			left: 10%;
 		}
 		to {
 			left: 100%;
@@ -138,10 +160,26 @@ import background from '../assets/Background.png'
 		z-index: 3; /* Added z-index */
 	}
 
+	.team-section {
+		background-image: radial-gradient(circle, #6a7274, #6a7373, #6a7373, #6b7472, #6c7471, #6b7370, #6b736f, #6a726e, #66716d, #636f6c, #5f6e6c, #5c6c6c);
+		text-align: center;
+	}
+
+	.team-section h1 {
+		margin: 0;
+		padding: 2rem 0;
+	}
+
+	.crew-image {
+		border-radius: 0.75em;
+		height: 500px;
+		width: auto;
+	}
+
 	.title-container {
 		position: relative;
 		z-index: 2;
-		margin: 1rem 0;
+		padding: 2rem 0;
 	}
 
 	.title-container img {
@@ -168,7 +206,7 @@ import background from '../assets/Background.png'
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-top: 1rem;
+		padding-top: 2rem;
 	}
 
 	.social-media-container a:not(:first-child) {
@@ -181,26 +219,99 @@ import background from '../assets/Background.png'
 		margin: 0 0.3em;
 	}
 
+	@media (max-width: 1200px) {
+
+		.title-container img {
+			height: 170px;
+		}
+
+		.initialCloud {
+			top: 50px;
+			height: 100px;
+			width: auto;
+		}
+
+		.firstCloud {
+			top: 200px;
+			height: 100px;
+			width: auto;
+		}
+
+		.secondCloud {
+			top: 50px;
+			height: 100px;
+			width: auto;
+		}
+
+		.thirdCloud {
+			top: 100px;
+			height: 100px;
+			width: auto;
+		}
+	}
+
 	/* Media Query for smaller screens */
 	/* TODO also check max-height because of video size on smaller screens, also fix whitespace right and top sides because of pulling down */
 	@media (max-width: 960px) {
+
+		.title-container {
+			padding: 1rem 0;
+		}
+
+		.title-container img {
+			height: 150px;
+		}
+
 		.video-container {
 			width: 94%;  /* Near full width with a bit of space from the border */
 			padding-bottom: 52.8125%;  /* Adjusted to maintain aspect ratio */
+		}
+
+		.cloud-container {
+			display: none;
+		}
+
+		.social-media-container {
+			padding: 1rem 0;
+		}
+	}
+
+	@media (max-width: 920px) , (max-height: 1370px) and (orientation: portrait){
+
+		.title-container img {
+			height: 130px;
 		}
 
 		section {
 			height: auto;
 		}
 
-		.cloud-container {
-			display: none;
+		.social-media-container {
+			padding: 1rem 0;
 		}
-	}
 
-	@media (max-width: 920px) {
-		.title-container img {
-			height: 150px;
+		.initialCloud {
+			top: 50px;
+			height: 70px;
+			width: auto;
+		}
+
+		.firstCloud {
+			top: 200px;
+			height: 70px;
+			width: auto;
+		}
+
+		.secondCloud {
+			top: 50px;
+			height: 70px;
+			width: auto;
+		}
+
+		.thirdCloud {
+			top: 100px;
+			height: 70px;
+			width: auto;
 		}
 	}
 
