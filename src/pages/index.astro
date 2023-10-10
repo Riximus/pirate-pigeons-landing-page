@@ -8,8 +8,33 @@ import pirate from '../assets/Pirate.png'
 import cloud1 from '../assets/Cloud1.png'
 import cloud2 from '../assets/Cloud2.png'
 import cloud3 from '../assets/Cloud3.png'
-import background from '../assets/Background.png'
 import crew from '../assets/Crew.jpg'
+
+const crewList =
+	[
+		{
+			name: "Sibel",
+			role: "3D, Shader",
+		},
+		{
+			name: "Denise",
+			role: "Lead",
+		}
+	]
+
+// Shuffle function using the Fisher-Yates algorithm
+function shuffle(array) {
+	let currentIndex = array.length, randomIndex;
+	while (currentIndex !== 0) {
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex--;
+		[array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+	}
+	return array;
+}
+
+// Shuffle the crewList array
+const shuffledCrewList = shuffle([...crewList]);
 ---
 
 <Layout title="Pirate Pigeons 🕊">
@@ -29,7 +54,7 @@ import crew from '../assets/Crew.jpg'
 					<Image src={pigeons} alt="Pirate Pigeon" />
 				</div>
 				<div class="video-container">
-					<iframe src="https://www.youtube-nocookie.com/embed/5jKZ9KGtee0?vq=hd1080&rel=0" title="A YouTube video" frameborder="0" allowfullscreen style="border-radius: 0.75em"></iframe>
+					<iframe src="https://www.youtube-nocookie.com/embed/5jKZ9KGtee0?vq=hd1080&rel=0" title="A YouTube video" frameborder="0" allowfullscreen></iframe>
 				</div>
 				<div class="social-media-container">
 					<!-- Twitter (or X I guess lol) -->
@@ -54,8 +79,18 @@ import crew from '../assets/Crew.jpg'
 			</div>
 		</section>
 		<section class="team-section">
-			<h1>CREW</h1>
+			<h1 class="team-section-title">CREW</h1>
 			<Image src={crew} class="crew-image" alt="Pirate Pigeon Crew Members as Pigeons" />
+			<div class="crew-container">
+				{
+					shuffledCrewList.map((crewMember) => (
+						<div class="crew-container-text">
+							<h3>{crewMember.name}</h3>
+							<p>{crewMember.role}</p>
+						</div>
+					))
+				}
+			</div>
 		</section>
 	</main>
 </Layout>
@@ -149,7 +184,7 @@ import crew from '../assets/Crew.jpg'
 		position: relative;
 		z-index: 1; /* Adjusted z-index */
 		text-align: center;
-		background-image: url('../assets/Background.png');
+		background-image: linear-gradient(to bottom, transparent, transparent 85%, #495860 100%, #495860), url('../assets/Background.jpg');
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
@@ -161,19 +196,35 @@ import crew from '../assets/Crew.jpg'
 	}
 
 	.team-section {
-		background-image: radial-gradient(circle, #6a7274, #6a7373, #6a7373, #6b7472, #6c7471, #6b7370, #6b736f, #6a726e, #66716d, #636f6c, #5f6e6c, #5c6c6c);
-		text-align: center;
+		background-color: #495860;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	.team-section h1 {
-		margin: 0;
 		padding: 2rem 0;
 	}
 
 	.crew-image {
 		border-radius: 0.75em;
-		height: 500px;
-		width: auto;
+		width: 40%;
+		height: auto;
+
+	}
+
+	.crew-container {
+		display: flex;
+		justify-content: space-evenly;
+		flex-wrap: wrap;
+		width: 80%;
+		height: auto;
+		padding-top: 2rem;
+	}
+
+	.crew-container h1, p {
+		margin: 0;
+		padding: 0;
 	}
 
 	.title-container {
@@ -200,6 +251,9 @@ import crew from '../assets/Crew.jpg'
 		left: 0;
 		width: 100%;
 		height: 100%;
+		border-radius: 0.75em;
+		border: solid 7px white;
+		box-sizing: border-box;
 	}
 
 	.social-media-container {
@@ -221,6 +275,11 @@ import crew from '../assets/Crew.jpg'
 
 	@media (max-width: 1200px) {
 
+		.video-container {
+			width: 70%;  /* Adjusted to 70% for larger screens */
+			padding-bottom: 39.375%;  /* Adjusted to maintain aspect ratio */
+		}
+
 		.title-container img {
 			height: 170px;
 		}
@@ -232,7 +291,7 @@ import crew from '../assets/Crew.jpg'
 		}
 
 		.secondInitialCloud {
-			top: 800px;
+			top: 80px;
 			height: 100px;
 			width: auto;
 		}
@@ -269,8 +328,8 @@ import crew from '../assets/Crew.jpg'
 		}
 
 		.video-container {
-			width: 94%;  /* Near full width with a bit of space from the border */
-			padding-bottom: 52.8125%;  /* Adjusted to maintain aspect ratio */
+			width: 90%;  /* Adjusted to 90% for larger screens */
+			padding-bottom: 50.625%;  /* Adjusted to maintain aspect ratio */
 		}
 
 		.cloud-container {
@@ -280,6 +339,14 @@ import crew from '../assets/Crew.jpg'
 		.social-media-container {
 			padding: 1rem 0;
 		}
+
+		.crew-image {
+			width: 70%;
+		}
+
+		h1 {
+			font-size: 7.5rem;
+		}
 	}
 
 	@media (max-width: 920px) , (max-height: 1370px) and (orientation: portrait){
@@ -288,8 +355,12 @@ import crew from '../assets/Crew.jpg'
 			height: 130px;
 		}
 
-		section {
+		.hero-section{
 			height: auto;
+		}
+
+		.team-section {
+			height: 60dvh;
 		}
 
 		.social-media-container {
@@ -331,11 +402,27 @@ import crew from '../assets/Crew.jpg'
 		.title-container img {
 			height: 100px;
 		}
+
+		h1 {
+			font-size: 5rem;
+		}
 	}
 
 	@media (max-width: 500px) {
 		.title-container img {
 			height: 75px;
+		}
+
+		.team-section-title {
+			padding: 0;
+		}
+
+		h1 {
+			font-size: 3.5rem;
+		}
+
+		h3 {
+			font-size: 2rem;
 		}
 	}
 
