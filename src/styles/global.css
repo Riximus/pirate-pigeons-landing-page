@@ -3,6 +3,7 @@
     src: url('/public/fonts/BagelFatOne-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
     src: url('/public/fonts/LondrinaOutline-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 
