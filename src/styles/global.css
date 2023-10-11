@@ -14,6 +14,13 @@
     font-display: swap;
 }
 
+body {
+		font-family: "Bagel", sans-serif;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: "Londrina", sans-serif;
+	}
 
 h1 {
     font-size: 10rem;
