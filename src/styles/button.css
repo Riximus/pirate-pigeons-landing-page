@@ -43,6 +43,21 @@ button {
     cursor: pointer;
 }
 
+.button_top_forms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.5em 1em 0.5em 0.5em;
+    background: #939732;
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+    cursor: pointer;
+}
+
 button:hover .button_top {
     /* Pull the button upwards when hovered */
     transform: translateY(-0.33em);

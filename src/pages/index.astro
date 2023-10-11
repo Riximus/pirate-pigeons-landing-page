@@ -87,6 +87,15 @@ const shuffledCrewList = shuffle([...crewList]);
 							</span>
 						</button>
 					</a>
+					<!-- Google Form -->
+					<a href="https://piratepigeons.com/" target="_blank" rel="noopener noreferrer">
+						<button>
+							<span class="button_top_forms">
+								<svg class="turn-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>list-box-outline</title><path d="M11 15H17V17H11V15M9 7H7V9H9V7M11 13H17V11H11V13M11 9H17V7H11V9M9 11H7V13H9V11M21 5V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H19C20.1 3 21 3.9 21 5M19 5H5V19H19V5M9 15H7V17H9V15Z" /></svg>
+								Feedback
+							</span>
+						</button>
+					</a>
 				</div>
 			</div>
 		</section>
@@ -237,7 +246,7 @@ const shuffledCrewList = shuffle([...crewList]);
 		flex-wrap: wrap;
 		width: 95%;
 		height: auto;
-		padding-top: 2rem;
+		padding: 2rem 0;
 		-webkit-animation: swing-in-top-fwd 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
 		animation: swing-in-top-fwd 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
 	}
@@ -423,6 +432,10 @@ const shuffledCrewList = shuffle([...crewList]);
 
 	@media (max-width: 920px) , (max-height: 1370px) and (orientation: portrait){
 
+		.team-section {
+			height: auto;
+		}
+
 		.title-container img {
 			height: 130px;
 		}
@@ -474,6 +487,10 @@ const shuffledCrewList = shuffle([...crewList]);
 		.title-container img {
 			height: 100px;
 		}
+
+		.crew-container {
+			padding-top: 1rem;
+		}
 	}
 
 	@media (max-width: 500px) {
@@ -488,9 +505,5 @@ const shuffledCrewList = shuffle([...crewList]);
 		.video-container iframe {
 			border: solid 3px white;
 		}
-	}
-
-	.debug {
-		border: 1px solid red;
 	}
 </style>
