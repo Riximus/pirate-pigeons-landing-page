@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'
+import SpeedInsights from "@vercel/speed-insights/astro"
 
 interface Props {
 	title: string;
@@ -10,6 +11,7 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
+	<SpeedInsights/>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Gurrr, embark on a new adventure! An indie 3D couch co-op game developed by a small team." />
